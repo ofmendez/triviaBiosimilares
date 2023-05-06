@@ -1,29 +1,16 @@
-<div class="ImagenLogoSuperior">
-   <img src="Images/Logo.svg" />
-</div>
-<div class="CuerpoContenido">
-   <div style="height:8vh;"></div>
-   <div class="ContenidoColumnas">
-      <div class="ColumnaFlex Columna30Porciento">
-         <p class="TextosSubtitulos">RESPUESTAS<br>CORRECTAS</p>
-         <div style="height:2vh;"></div>
-         <div id="correctAnswers" class="FondosResultados FondoRespuestas">8/8</div>
-      </div>
-      <div class="ColumnaFlex Columna30Porciento">
-         <p class="TextosSubtitulos">TIEMPO<br>TOTAL</p>
-         <div style="height:2vh;"></div>
-         <div id="totalTime" class="FondosResultados FondoTiempoTotal">00:00</div>
-      </div>
-      <div class="ColumnaFlex Columna30Porciento">
-         <p class="TextosSubtitulos">PUNTAJE<br>TOTAL</p>
-         <div style="height:2vh;"></div>
-         <div id="score" class="FondosResultados FondoPuntajeTotal"></div>
-      </div>
-   </div>
-   <div style="position:absolute; bottom:-3px; left:0; width:100%; background-image: url('Images/Instrucciones01.png'); background-size:cover;background-position: center top;">
-      <div style="height:32vh;"></div>
-      <a onClick="GoRanking()" class="BotonGradiente" style="width:60%;">Ranking</a>
-      <div style="height:10vh;"></div>
-   </div>
+<img src="Images/FondoJuego.jpg" id="BackgroundImage" alt="">
+
+<div style="height:3vh;"></div>
+
+<img class="LogoRegistro" src="Images/QuienSabeMas.png" />
+
+<div style="height:3vh;"></div>
+
+<div class="ContenedorResultado">
+    <img class="BannerEstrellas" src="Images/Estrellas.png" />
+<div class="ContainerResultado"><span class="TituloPuntaje">PUNTAJE FINAL</span><br><span class="ResultadoPuntaje">100</span></div>
 </div>
 
+<a class="BotonContinuar" href="javascript:views.GoTo('Ranking')">IR AL RANKING</a>
+
+<img class="LogoTextoRetroalimentacion" src="Images/LogoAmgen.svg" />

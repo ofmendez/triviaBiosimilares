@@ -5,66 +5,29 @@
 	text-decoration: none;
 	border: none;
 	outline: none;
+	font-family: Gordita-Medium;
 }
-@font-face {
-	font-family: BebasNeueBook;
-	src: url(../Fonts/BebasNeueBook.woff);
-}
-@font-face {
-	font-family: BebasNeueBold;
-	src: url(../Fonts/BebasNeueBold.woff);
-}
-@font-face {
-	font-family: Montserrat;
-	src: url(../Fonts/Montserrat.woff);
-}
+
 body {
-	background-color: #022a3a;
+	background-color: #053456;
 }
+
 img {
 	width: 100%;
 }
-h2 {
-	font-family: BebasNeueBold;
-	font-size: 6vh;
-	color: white;
-	text-shadow: 2px 2px 5px black;
+
+@font-face {
+	font-family: Gordita-Medium;
+	src: url(../Fonts/Gordita-Medium.woff);
 }
-button {
-	background-color: transparent;
-}
-option{
-	color: #022a3a;
-}
-.TextosSubtitulos {
-	font-family: BebasNeueBold;
-	font-size: 3vh;
-	color: white;
-	text-shadow: 2px 2px 5px black;
-}
-.TextoParrafo {
-	font-family: Montserrat;
-	font-size: 1.8vh;
-	color: white;
-	text-shadow: 2px 2px 5px black;
-}
+
+/* Configuración contenedor general */
+
 .Wrapper {
 	height: 100%;
 	min-height: 100%;
 	width: 100vw;
 	text-align: center;
-}
-
-#background-video {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	position: fixed;
-	left: 0;
-	right: 0;
-	top: 2px;
-	bottom: 0;
-	z-index: -1;
 }
 
 .Content {
@@ -82,346 +45,406 @@ option{
 	min-height: 540px;
 }
 
-.ContenidoColumnas {
-	display: flex;
+#BackgroundImage {
 	width: 100%;
-	align-items: center;
-	justify-content: center;
+	height: 100%;
+	object-fit: cover;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 2px;
+	bottom: 0;
+	z-index: -1;
 }
-.CuerpoContenido {
-	padding: 0 10%;
-}
-.ColumnaFlex {
-	flex: 1;
-	float: inherit;
-	padding: 0 5%;
-}
-.Columna20Porciento {
-	width: 20%;
-	flex: 0 0 20%;
-}
-.Columna25Porciento {
-	width: 25%;
-	flex: 0 0 25%;
-}
-.Columna30Porciento {
-	width: 30%;
-	flex: 0 0 30%;
-}
-.Columna33Porciento {
-	width: 33.3%;
-	flex: 0 0 33.3%;
-}
-.Columna35Porciento {
-	width: 35%;
-	flex: 0 0 35%;
-}
-.Columna40Porciento {
-	width: 40%;
-	flex: 0 0 40%;
-}
-.Columna60Porciento {
-	width: 60%;
-	flex: 0 0 60%;
-}
-.Columna65Porciento {
-	width: 65%;
-	flex: 0 0 65%;
-}
-.Columna80Porciento {
-	width: 80%;
-	flex: 0 0 80%;
-}
-.BotonGradiente {
-	font-family: Montserrat;
-	font-weight: 800;
-	font-size: 3vh;
-	padding: 5px 15px;
-	text-align: center;
-	transition: 0.5s;
-	background-size: 200% auto;
-	background-image: linear-gradient(#ffaa2a 0%, #ff3800 100%);
-	border: 5px solid #ffc75c;
-	color: #fff;
-	width: 80%;
-	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-	cursor: pointer;
-	display: inline-block;
-	border-radius: 100px;
-}
+
 
 /* De aqui en adelante inician las páginas */
 
-/* Pagina Index */
-.TitulosIndex {
-	margin: 20px 0;
-}
 /* Pagina Registro */
-.FondoTrasparenciaBarco {
-	background-image: url("../Images/RegistroFondo.png");
-	background-size: cover;
-	margin-top: -8vh;
-}
-.CurvaSeccion {
-	margin-top: -5vh;
-}
-input, .Desplegable {
-	border: 0.5vh solid white;
-	background-color: #ffffff52;
-	border-radius: 50px;
-	padding-left: 2vh;    
-	padding-right: 2vh;   
-	height:4.3vh;
-	width: 87%;
-}
-::placeholder, 
-input[type="text"],
-input[type="email"],
-select {
-	color: white;
-	font-family: BebasNeueBold;
-	font-size: 2.5vh;
-}
-/* Pagina Preguntas */
-.EstiloPregunta {
-	font-family: Montserrat;
-	font-size: 1.6vh;
-	padding: 1vh 2vh;
-	text-align: center;
-	background-size: 200% auto;
-	background-image: linear-gradient(#662481 0%, #755fa6 100%);
-	border: 0.5vh solid #dd5cff;
-	color: #fff;
-	border-radius: 100px;
-}
-.EstiloRespuesta {
-	border: 0.5vh solid #17fff2;
-	color: white;
-	padding: 1vh 2vh;
-	border-radius: 50px;
-	background-color: #013b58;
-	font-family: Montserrat;
-	font-size: 2vh;
-	position: relative;
-	cursor: pointer;
-}
-.RespuestaCorrecta {
-	font-family: Montserrat;
-	font-size: 2vh;
-	padding: 1vh 2vh;
-	text-align: center;
-	background-size: 200% auto;
-	background-image: linear-gradient(#ffaa2a 0%, #ff3800 100%);
-	border: 5px solid #ffc75c;
-	color: #fff;
-	border-radius: 100px;
+
+.LogoRegistro{
+	width:45%;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
 }
 
-.RespuestaIncorrecta {
-	font-family: Montserrat;
-	font-size: 2vh;
-	padding: 1vh 2vh;
-	text-align: center;
-	background-size: 200% auto;
-	background-image: linear-gradient(#eb5a67 0%, #bf0020 100%);
-	border: 0.5vh solid #ff5c61;
-	color: #fff;
-	border-radius: 100px;
-}
-
-.FondoTiempo {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	background-image: url("../Images/TiempoFondo.svg");
-	padding-bottom: 1.6vh;
-	/* padding-right: 0.4vh; */
-	min-height: 48px;
-	z-index: 9;
-	color: #013b58;
-	font-family: BebasNeueBold;
-	font-size: 3vh;
-	font-weight: 600;
-
-	background-repeat: no-repeat;
-	background-position: center center;
+.ContenedorRegistro{
+	width:70%;
+	margin:0 auto;
+	background: url(../Images/FondoDatosRegistro.png) no-repeat center center;
 	background-size: contain;
-	height: 12vh;
+	padding:3vh;
+
 }
 
-/* Pagina resultados */
-.FondosResultados {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	padding-bottom: 1vh;
-	padding-right: 0.7vh;
-	min-height: 48px;
-	z-index: 9;
-	font-family: BebasNeueBold;
-	font-size: 3vh;
-	font-weight: 600;
+input{
+background:url(../Images/FondoCampoRegistro.svg) no-repeat left top; 
+padding:10px 25px 15px 25px;
+color: #1c76ba;
+font-size: 16px;
+text-align: center; 
+}
 
-	background-repeat: no-repeat;
-	background-position: center center;
+::placeholder {
+	text-align: center; 
+	color: #969696;
+ }
+
+button{
+	background-color: transparent;
+}
+
+.BotonRegistroSubmit{
+	width:60%;
+}
+
+
+/* Pagina Instrucciones 01 */
+
+.BotonContinuar{
+	background:url(../Images/FondoBotonContinuar.svg) no-repeat center center;
 	background-size: contain;
-	height: 12vh;
-}
-.FondoRespuestas {
-	background-image: url("../Images/FondoPuntaje01.svg");
-	color: #013b58;
-}
-.FondoTiempoTotal {
-	background-image: url("../Images/FondoPuntaje02.svg");
-	color: #fff;
-}
-.FondoPuntajeTotal {
-	background-image: url("../Images/FondoPuntaje03.svg");
-	color: #fff;
+	width:70%;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	padding:20px;
+	color:white;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
 }
 
-/* Página ranking */
-
-.ContenidosRanking {
-	font-family: BebasNeueBold;
-	font-size: 2.4vh;
-	color: #ffb400;
-	width: 100%;
-	background-color: #ffffff52;
-	border-radius: 50px;
-	border: 0.5vh solid #ffb400;
-	padding: 0.6vh;
-	margin-bottom: 1vh;
-	text-align: left;
+.LogoInferior{
+ width:50%;
+ position: absolute;
+ bottom: -2px;
+ left:50%;
+ transform: translateX(-50%);
+ filter: drop-shadow(0px 3px 4px #0e0c63aa);
 }
 
-.ContenidosRanking ~ .ContenidosRanking {
-	color: white;
-	border: 0.5vh solid white;
+/* Pagina Seleccion Nivel */
+
+.LogoSeleccionNivel{
+	width:35%;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
 }
 
-.PosicionJugadorRanking {
-	width: 14%;
+.BotonSeleccionNivel{
+	background:url(../Images/FondoBotonContinuar.svg) no-repeat center center;
+	background-size: contain;
+	width:70%;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	padding:20px;
+	color:white;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
 }
-.NombreJugadorRanking {
-	width: 66%;
-}
-.PuntajeJugadorRanking {
-	width: 20%;
-}
-.IconosAmenazas {
-	animation: float 6s ease-in-out infinite;
-}
-.IconosAmenazas02 {
-	animation: float02 6s ease-in-out infinite;
-}
-.space1vh {
-    height:1vh;
-}
-.space2vh {
-    height:2vh;
-}
-.avoidEvents{
+
+.NivelSuperado{
 	pointer-events: none;
 }
-.interactable{
-	cursor: pointer;
-}
-.loading:after {
-	content: ' .';
-	animation: dots 1s steps(5, end) infinite;
+
+.NivelActual{
+	background:url(../Images/FondoNivelActual.svg) no-repeat center center;
 }
 
-/* Atributos */
-[transparent] { visibility: hidden; } 
+.NivelBloqueado{
+	pointer-events: none;
+	opacity: 40%;
 
-
-/* Animaciones */
-@keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-20px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
-}
-@keyframes float02 {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(20px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
 }
 
-@keyframes dots {
-	0%, 20% {
-		color: rgba(0,0,0,0);
-		text-shadow:
-		.25em 0 0 rgba(0,0,0,0),
-		.5em 0 0 rgba(0,0,0,0);
-	}
-	40% {
-		color: white;
-		text-shadow:
-		.25em 0 0 rgba(0,0,0,0),
-		.5em 0 0 rgba(0,0,0,0);
-	}
-	60% {
-		text-shadow:
-		.25em 0 0 white,
-		.5em 0 0 rgba(0,0,0,0);
-	}
-	80%, 100% {
-		text-shadow:
-		.25em 0 0 white,
-		.5em 0 0 white;
-	}
+.FooterAmgen{
+	width:20%;
+	position: absolute;
+	bottom: 1vh;
+	left:4vh;
+   }
+
+/* Pagina Pregunta */
+
+.FondoTiempo{
+	background:url(../Images/Fondo_Tiempo.png) no-repeat center center;
+	background-size: contain;
+	padding:4vh;
+	color: white;
+	font-size:3vh;
 }
 
-/* @ Media*/ 
+.SeccionPuntaje{
+	background:url(../Images/FondoPuntaje.png) no-repeat center center;
+	background-size: contain;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	padding:3vh;
+	padding-left:5vh;
+	color:white;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+	z-index:10;
+	position: absolute;
+	top:1vh;
+	right:2vh;
+	font-size:1.6vh;
+}
 
-@media only screen and (max-width: 860px) {
-	.Content {
-		height: 100vh;
-		max-height:100vh;
-		min-height:100vh;
-		width: 100vw;
-		max-width:100vw;
-		min-width:100vw;
-		top: 0%;
-		-webkit-transform: translateY(0%);
-		-ms-transform: translateY(0%);
-		transform: translateY(0%);
-    }
+.TituloNivel{
+	background:url(../Images/TituloNivel.svg) no-repeat center center;
+	background-size: contain;
+	width:70%;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	padding:16px;
+	color:black;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+	z-index:10;
+	position: relative;
+}
+
+.SeccionPreguntas{
+	background: rgb(255,255,255);
+	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(47,178,232,1) 20%, rgba(47,178,232,1) 80%, rgba(255,255,255,1) 100%);
+	top: -3vh;
+	position: relative;
+	z-index:1;
+	border-top:3px solid #2c54a3;
+	border-bottom:3px solid #2c54a3;
+}
+
+.BloquePreguntas{
+	width:80%;
+	margin:0 auto;
+	display:flex;
+}
+.ImagenPregunta{
+	width:20%;
+}
+
+.TextoPregunta{
+	width:80%;
+	text-align:left;
+	padding-left:2vw;
+}
+
+.BotonRespuesta{
+	background:url(../Images/FondoBotonContinuar.svg) no-repeat center center;
+	background-size: contain;
+	width:70%;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	padding:20px;
+	color:white;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+}
+
+.RespuestaCorrecta{
+	background:url(../Images/FondoRespuestaCorrecta.svg) no-repeat center center;
+}
+
+.RespuestaIncorrecta{
+	background:url(../Images/FondoRespuestaIncorrecta.svg) no-repeat center center;
+}
+
+.TextoAmarillo{
+	color:#faec21;
+}
+
+.SeccionAyudas{
+	background:url(../Images/FondoAyudas.jpg) no-repeat center center;
+border-top:3px solid #2c54a3;
+border-bottom:3px solid #2c54a3;
+	display:block;
+	width:100%;
+
+}
+
+.BotonAyuda{
+	width:25%;
+	padding:2vh;
+}
+
+.AyudaPistaInformativa{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index: 20;
+}
+.OverlayPistaInformativa{
+	background-color: #053456;
+	opacity:75%;
+	width: calc(100vh / 2);
+	min-width: 300px;
+	height: 90.3vh;
+
+}
+
+.ContenedorPistaInformativa{
+	top:50%;
+	left:50%;
+	width:80%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+}
+
+.TituloPista{
+	background:url(../Images/TituloPista.svg) no-repeat center center;
+	background-size: contain;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	padding:10px 120px;
+	color:transparent;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+	z-index:20;
+	position: relative;
+	
+}
+
+.TextoPista{
+	width:70%;
+	margin:0 auto;
+	color:white;
+	background-color: #2fb2e8;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+	padding:3vw;
+	border-radius: 0 0 2vw 2vw;
+	top:-3vh;
+	position: relative;
+	z-index:10;
+}
+
+.BotonContinuarAzul{
+	background:url(../Images/FondoBotonAzul.svg) no-repeat center center;
+	background-size: contain;
+	width:70%;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	padding:20px;
+	color:white;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+	top:-4vh;
+	position: relative;
+}
+
+.ContenedorTextoRetroalimentacion{
+	top:50%;
+	left:50%;
+	width:100%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+}
+
+.BannerEstrellas{
+	width:100%;
+	position: relative;
+	z-index: 20;;
 }
 
 
+.TextoRetroalimentacion{
+	width:60%;
+	margin:0 auto;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
 
-div#tablasRR {
-max-height: 42vh;
-overflow-y: scroll;
-padding: 10px;
+	top:-8vh;
+	position: relative;
+	z-index:10;
+}
+.TituloTextoRetroalimentacion{
+	background-color: white;
+	padding:6vw 1vw 2vw 1vw;
+	color: #2fb2e8;
+	font-size:2.5vw;
+	
 }
 
-::-webkit-scrollbar-thumb {
-    background: #ffffff44;
-    border-radius: 10px;
+.ContenidoTextoRetroalimentacion{
+	color:white;
+	padding:3vw 3vw 3vw 3vw;
+	background-color: #2fb2e8;
+	border-radius: 0 0 2vw 2vw;
 }
 
-::-webkit-scrollbar-track {
-    border-radius: 10px;
-    border: 2px solid #ffffff;
+
+.LogoTextoRetroalimentacion{
+	width:35%;
+	position: absolute;
+	bottom: 0px;
+	left:50%;
+	transform: translateX(-50%);
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
 }
 
-::-webkit-scrollbar {
-    width: 12px;
+/* Pagina Resultados */
+
+.ContenedorResultado{
+	width:80%;
+	margin: 0 auto;
+}
+
+.ContainerResultado{
+	width:70%;
+	margin: 0 auto;
+	color: white;
+	padding:75px 3vw 35px 3vw;
+	top:-60px;
+	position: relative;
+	border-radius: 0 0 2vw 2vw;
+	background: rgb(6,113,187);
+	background: linear-gradient(90deg, rgba(6,113,187,1) 0%, rgba(104,38,128,1) 100%);
+	outline-offset: -5px;
+	outline: 2px solid white;
+}
+
+.TituloPuntaje{
+	font-size:24px;
+}
+
+.ResultadoPuntaje{
+	font-size:20px;
+}
+
+/* Página Ranking */
+
+.PosicionRanking{
+	background:url(../Images/FondoBotonContinuar.svg) no-repeat center center;
+	background-size: contain;
+	width:70%;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	padding:20px 20px;
+	color:white;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+	display: flex;
+	align-items: center;
+	height:4.5vh;
+}
+
+.PrimerPuesto{
+	background:url(../Images/FondoPrimerPuesto.svg) no-repeat center center;
+	color:black;
+}
+
+.SegundoPuesto{
+	background:url(../Images/FondoSegundoPuesto.svg) no-repeat center center;
+}
+
+.TercerPuesto{
+	background:url(../Images/FondoTercerPuesto.svg) no-repeat center center;
+}
+
+.NombreParticipante{
+width:75%;
+text-align: left;
+padding:0px 20px;
+}
+
+.PuntajeParticipante{
+width:25%;
+text-align: right;
+padding:0px 20px;
 }
