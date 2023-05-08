@@ -5,7 +5,7 @@ import * as views from "./views.js";
 
 window.views = views
 
-views.GoTo("Ranking")
+views.GoTo("Instrucciones01")
 
 window.TryLogin = (form)=>{
     Login(form);return true;

@@ -57,6 +57,17 @@ img {
 	z-index: -1;
 }
 
+.CodigoDesarrollo{
+	text-align: right;
+	display: block;
+	position: absolute;
+	font-size:10px;
+	bottom:2px;
+	right:6px;
+	COLOR: white;
+
+}
+
 
 /* De aqui en adelante inician las páginas */
 
