@@ -5,6 +5,7 @@
                 "id": "0",
                 "statement": "Un medicamento biosimilar es:",
                 "popup": "La meta es demostrar similitud; establecer el puente científico a la experiencia clínica del producto de referencia.",
+                "ayuda": "Un Biosimilar debe demostrar  calidad, eficacia y seguridad  similar al medicamento innovador de referencia.",
                 "Answers":[
                     {
                         "id":"0",
@@ -32,6 +33,7 @@
                 "id": "1",
                 "statement": "Desarrollar biosimilares es un proceso complejo en el cual se requiere:",
                 "popup": "Desarrollar biosimilares es un proceso complejo que requiere líneas celulares personalizadas, nuevos procesos de fabricación y una experiencia considerable.",
+                "ayuda": "Los Biosimilares al ser medicamentos Biológicos ( células vivas ) requieren múltiples puntos de control para asegurar la calidad en cada etapa del proceso.",
                 "Answers":[
                     {
                         "id":"0",
@@ -59,6 +61,7 @@
                 "id": "2",
                 "statement": "En Colombia actualmente se comercializan alrededor de:",
                 "popup": "En Colombia hasta el 3er trimestre del 2022 se comercializan alrededor de 20 Biosimilares en diferentes áreas terapéuticas.",
+                "ayuda": "La aprobación de Biosimilares ha venido en aumento en los  últimos 2 años, para el 2020 habían ya 9 Biosimilares disponibles en Colombia.",
                 "Answers":[
                     {
                         "id":"0",
@@ -86,6 +89,7 @@
                 "id": "3",
                 "statement": "El switch es un concepto de los Biosimilares que se refiere a:",
                 "popup": "El switch se da cuando el prescriptor decide cambiar un biológico por otro con el mismo objetivo terapéutico.",
+                "ayuda": "Switch de la palabra en ingles que traduce cambiar.",
                 "Answers":[
                     {
                         "id":"0",
@@ -113,6 +117,7 @@
                 "id": "4",
                 "statement": "Se conoce como totalidad de la evidencia a:",
                 "popup": "El biosimilar debe someterse a un desarrollo clínico completo para demostrar la misma eficacia, seguridad y calidad que el medicamento de referencia.",
+                "ayuda": "Para ser aprobado el medicamento biosimilar debe someterse a un desarrollo clínico riguroso y completo.",
                 "Answers":[
                     {
                         "id":"0",
@@ -140,6 +145,7 @@
                 "id": "5",
                 "statement": "Dentro de los primeros fármacos biológicos desarrollados se encuentra:",
                 "popup": "Los primeros biológicos, como la insulina, eran versiones modificadas de proteínas humanas, hoy en día ya se pueden diseñar estructuras moleculares mucho más complejas.",
+                "ayuda": "Este primer fármaco biológico era una versión modificada de proteínas humanas.",
                 "Answers":[
                     {
                         "id":"0",
@@ -167,6 +173,7 @@
                 "id": "6",
                 "statement": "Hasta finales del 2022, la FDA había aprobado:",
                 "popup": "Los Biosimilares son medicamentos seguros y eficaces para el tratamiento de muchas enfermedades.",
+                "ayuda": "Para finales del 2022 se habián aprobado más de 20 medicamentos Biosimilares.",
                 "Answers":[
                     {
                         "id":"0",
@@ -192,8 +199,9 @@
             },
             {
                 "id": "7",
-                "statement": "Algunos de los criterios más importantes para definir el uso de un Biosimilar pueden ser",
+                "statement": "Algunos de los criterios más importantes para definir el uso de un Biosimilar pueden ser:",
                 "popup": "El desarrollo de productos biológicos es un proceso altamente especializado y de varios pasos, y Amgen cuenta con una amplia experiencia en todas las fases, desde el desarrollo hasta la fabricación, para ayudar a garantizar un suministro confiable.",
+                "ayuda": "Existen multiples criterios a tener en cuenta para definir el uso de un medicamento biosimilar.",
                 "Answers":[
                     {
                         "id":"0",
@@ -221,6 +229,7 @@
                 "id": "8",
                 "statement": "El primer Biosimilar en el mundo se aprobó en el año:",
                 "popup": "Para seguir aprendiendo sobre Biosimilares consulta www.amgenbiosimilares.com.co",
+                "ayuda": "Antes del año 2010 ya contabamos con medicamentos biosimilares aprobados por la FDA.",
                 "Answers":[
                     {
                         "id":"0",

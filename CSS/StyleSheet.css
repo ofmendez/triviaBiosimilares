@@ -110,15 +110,21 @@ button{
 	padding:20px;
 	color:white;
 	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+	position:relative;
+	z-index:20;
 }
 
 .LogoInferior{
- width:50%;
+ width:40%;
  position: absolute;
  bottom: -2px;
  left:50%;
  transform: translateX(-50%);
  filter: drop-shadow(0px 3px 4px #0e0c63aa);
+}
+
+.AyudasJuego{
+	max-width: 76%;
 }
 
 /* Pagina Seleccion Nivel */
@@ -386,10 +392,11 @@ border-bottom:3px solid #2c54a3;
 }
 
 .ContainerResultado{
-	width:70%;
+	width:75%;
+	max-width:230px;
 	margin: 0 auto;
 	color: white;
-	padding:75px 3vw 35px 3vw;
+	padding:75px 2vw 35px 2vw;
 	top:-60px;
 	position: relative;
 	border-radius: 0 0 2vw 2vw;
