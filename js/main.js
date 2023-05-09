@@ -1,55 +1,58 @@
-import { emailToId} from './utils.js'
+import { emailToId,ñ} from './utils.js'
 import {createUserData ,getUserData} from "./database.js";
 import * as views from "./views.js";
+import {loadDataFile} from './files.js'
+import * as register from './register.js'
 
-
+let Questions = {}    
+let countdownTimer = {}
+let totalTime = 0 
+let aviable5050 = true
+let answered = {}
+let totalErrors = 0
+let streak = 0
+let totalPoints = 0
+let pointsBySuccess = 100
+let multiplier = 1;
+let timeByAns = 60
+let timeleft = timeByAns-1
 window.views = views
 
 views.GoTo("Wellcome")
-views.GoTo("SeleccionNivel")
+// views.GoTo("Instrucciones01")
 
-window.TryLogin = (form)=>{
-    Login(form);
-    /*getUserData().then((res)=>{
-        let exist = false
-        for (const u in res) 
-            if (res.hasOwnProperty(u)) 
-                exist |= u===emailToId(form.elements['idCorreo'].value)
-        if(exist)
-            GoRanking()
-        else
-            Login(form)
-        return false;
+window.TryLogin = (form)=>{return register.TryLogin(form, successLogin)}
 
-    }).catch((res)=> {
-        console.log("Error login: "+res)
-        alert("Ranking, Ha ocurrido un error, intente nuevamente.")
-        return false;
-    });*/
-    return false;
+// loadDataFile('json')
+
+const SetLobby = ()=>{
+    loadDataFile("txt").then((res)=>{
+        Questions = res[0].Questions; 
+    });
+    views.GoTo("SeleccionNivel").then((res)=>{
+        let questionBtns =ñ('.BotonSeleccionNivel')
+        let ix =0
+        for (let b of questionBtns) {
+            b.id = ix++; 
+            if (b.id in answered){
+                b.src ='../Images/IconoPregunta0'+(parseInt(b.id)+1)+(answered[b.id]?'_Bien':'_Mal')+'.svg'
+            }else{
+                b.classList.add('interactable');
+                b.addEventListener('click', ()=> GoQuestion(b.id) );
+            }
+        }
+    });
 }
 
 
 
-const Login = (form)=>{
-    views.GoTo("Instrucciones01").then(() =>{return false});
-   /*createUserData(
-        emailToId(form.elements['idCorreo'].value),
-        form.elements['idCorreo'].value,
-        form.elements['idNombreCompleto'].value,
-        form.elements['idEmpresa'].value,
-        form.elements['idAssesment'].value,
-        form.elements['idMailbox'].value
-    ).then((res)=>{
-        userID = emailToId(form.elements['idCorreo'].value);
-        views.GoTo("Instrucciones01")
-    }).catch(()=> {
-        alert("Ha ocurrido un error, intente nuevamente.")
-    })*/
-}
-
-
-
+const successLogin = () =>{
+    ñ("#btnNext").addEventListener('click',()=>{
+        views.GoTo("Instrucciones02").then(()=>{
+            ñ("#btnStartGame").addEventListener('click',()=> SetLobby() );
+        });
+    });
+} 
 
 //////////////////////////////////////////////
 
