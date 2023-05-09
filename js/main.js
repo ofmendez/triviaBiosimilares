@@ -6,10 +6,11 @@ import * as views from "./views.js";
 window.views = views
 
 views.GoTo("Wellcome")
+views.GoTo("SeleccionNivel")
 
 window.TryLogin = (form)=>{
-    Login(form);return true;
-    getUserData().then((res)=>{
+    Login(form);
+    /*getUserData().then((res)=>{
         let exist = false
         for (const u in res) 
             if (res.hasOwnProperty(u)) 
@@ -24,15 +25,15 @@ window.TryLogin = (form)=>{
         console.log("Error login: "+res)
         alert("Ranking, Ha ocurrido un error, intente nuevamente.")
         return false;
-    });
+    });*/
     return false;
 }
 
 
 
 const Login = (form)=>{
-    views.GoTo("Instrucciones01");return true;
-    createUserData(
+    views.GoTo("Instrucciones01").then(() =>{return false});
+   /*createUserData(
         emailToId(form.elements['idCorreo'].value),
         form.elements['idCorreo'].value,
         form.elements['idNombreCompleto'].value,
@@ -44,7 +45,7 @@ const Login = (form)=>{
         views.GoTo("Instrucciones01")
     }).catch(()=> {
         alert("Ha ocurrido un error, intente nuevamente.")
-    })
+    })*/
 }
 
 
