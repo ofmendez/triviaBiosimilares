@@ -487,3 +487,25 @@ width:30%;
 text-align: right;
 padding:0px 20px;
 }
+
+/* Fabian*/
+
+.space1vh {
+    height:1vh;
+}
+.space2vh {
+    height:2vh;
+}
+.avoidEvents{
+	pointer-events: none;
+}
+.interactable{
+	cursor: pointer;
+}
+[transparent] { 
+	visibility: hidden; 
+} 
+
+[nodisplay] { 
+	display: none; 
+} 
