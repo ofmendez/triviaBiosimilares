@@ -18,7 +18,7 @@ let streak = 0
 let totalPoints = 0
 let pointsBySuccess = 100
 let multiplier = 1;
-let timeByAns = 30
+let timeByAns = 9999
 let timeleft = timeByAns-1
 window.views = views
 

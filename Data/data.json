@@ -5,7 +5,7 @@
                 "id": "0",
                 "statement": "Un medicamento biosimilar es:",
                 "popup": "La meta es demostrar similitud; establecer el puente científico a la experiencia clínica del producto de referencia.",
-                "ayuda": "Un Biosimilar debe demostrar  calidad, eficacia y seguridad  similar al medicamento innovador de referencia.",
+                "ayuda": "Un Biosimilar debe demostrar calidad, eficacia y seguridad  similar al medicamento innovador de referencia.",
                 "Answers":[
                     {
                         "id":"0",
@@ -61,7 +61,7 @@
                 "id": "2",
                 "statement": "En Colombia actualmente se comercializan alrededor de:",
                 "popup": "En Colombia hasta el 3er trimestre del 2022 se comercializan alrededor de 20 Biosimilares en diferentes áreas terapéuticas.",
-                "ayuda": "La aprobación de Biosimilares ha venido en aumento en los  últimos 2 años, para el 2020 habían ya 9 Biosimilares disponibles en Colombia.",
+                "ayuda": "La aprobación de Biosimilares ha venido en aumento en los últimos 2 años, para el 2020 habían ya 9 Biosimilares disponibles en Colombia.",
                 "Answers":[
                     {
                         "id":"0",
