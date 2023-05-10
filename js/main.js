@@ -22,9 +22,10 @@ let timeByAns = 9999
 let timeleft = timeByAns-1
 window.views = views
 
-views.GoTo("Wellcome")
-views.GoTo("Instrucciones01").then(()=>successLogin())
-// loadDataFile('json')
+views.GoTo("Ranking")
+// views.GoTo("Wellcome")
+// views.GoTo("Instrucciones01").then(()=>successLogin())
+loadDataFile('json')
 
 
 window.TryLogin = (form)=>{return register.TryLogin(form, successLogin)}
@@ -145,6 +146,42 @@ const NextQuestionOrResults = ()=>{
         GoToResults();
     else
         GoLobby();
+}
+const GoToResults = ()=>{
+    document.body.classList.add('avoidEvents');
+    views.GoTo("Resultados").then((res)=>{
+        ñ("#btnGoRank").addEventListener('click',()=> GoToRanking());
+        ñ('#score').innerHTML = totalPoints;
+        document.body.classList.remove('avoidEvents');
+    });
+}
+
+const GoToRanking = (q)=>{
+    views.GoTo("Ranking").then(()=>{
+        let listaIndices = []//JSON.parse(localStorage.getItem("listaIndices") ||JSON.stringify([]));
+        FillRanking(listaIndices);
+    });
+}
+
+const FillRanking = (listaIndices)=>{
+    let users = []
+    for (const i in listaIndices) {
+        let user ={}
+        user.username= localStorage.getItem("Nombre_"+listaIndices[i] );
+        user.score= localStorage.getItem("Puntos_"+listaIndices[i] );
+        users.push(user);
+    }
+    users.sort((a, b) => { return b.score - a.score; });
+    
+    let container = document.getElementById('tablasRR');
+    let tables = InsertElement('table',[],'',container);
+    for (let i = 0; i < users.length; i++) {
+        let tr = InsertElement('tr',['EstiloPuntaje'],'',tables);
+        InsertElement('th',['PosicionJugadorRanking'],'#'+(i+1),tr);
+        InsertElement('th',['NombreJugadorRanking'],users[i].username,tr);
+        InsertElement('th',['PuntajeJugadorRanking'],users[i].score,tr);
+    }
+    
 }
 
 
