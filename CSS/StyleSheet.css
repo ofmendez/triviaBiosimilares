@@ -80,6 +80,42 @@ img {
 
 }
 
+/* Configuracion Pantalla completa en móviles */
+
+@media (max-width: 768px) {
+
+	body, html {
+		height: 100%;
+	  }
+
+	.Wrapper {
+		height: 100%;
+		min-height: 100%;
+		width: 100%;
+		text-align: center;
+	}
+	
+	.Content {
+		top: 0vh;
+		-webkit-transform: translateY(0%);
+		-ms-transform: translateY(0%);
+		transform: translateY(-0%);
+		width: 100%;
+		min-width: 100%;
+		height: 100%;
+		max-height: 100%;
+		min-height: 100%;
+		overflow: hidden;
+	}
+  }
+
+  
+/* Bloquear rotación a horizontal */
+
+  @media (max-width: 1200px) and (orientation: landscape) {
+	
+  }
+
 
 /* De aqui en adelante inician las páginas */
 
@@ -268,12 +304,15 @@ button{
 	background:url(../Images/FondoBotonContinuar.svg) no-repeat center center;
 	background-size: contain;
 	width:70%;
+	min-height: 2.6vh;
 	text-align: center;
 	margin: 0 auto;
 	display: block;
 	padding:20px;
 	color:white;
 	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+	line-height: 1.2em;
+    font-size: 14px;
 }
 
 .RespuestaCorrecta{
