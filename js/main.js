@@ -72,6 +72,8 @@ const SetQuestionAndAnswers = (question)=>{
     ñ('.SeccionPuntaje')[0].innerHTML=totalPoints
     ñ('.TextoPregunta')[0].innerHTML = question.statement;
     for(let ans of question.Answers){
+        // if(ans.isCorrect) 
+        //     console.log(String.fromCharCode(65 + parseInt(ans.id)));
         let a= InsertElement('a', ['BotonRespuesta'],ans.text,ñ('#answersList'),'answer'+ans.id);
         a.addEventListener("click", () => Answer(ans, question));
         InsertElement('span',['TextoAmarillo'],String.fromCharCode(65 + parseInt(ans.id))+': ',a,undefined,true);
@@ -92,7 +94,7 @@ const UpdateStatus = ( time, isCorrect)=>{
     // streak = isCorrect? streak + 1 : 0;
     AccumTime(time)
     if (isCorrect)
-        AccumPoints(timeleft+1,pointsBySuccess)
+        AccumPoints(timeleft+1,pointsBySuccess*(progress+1))
     progress++;
 }
 
@@ -101,6 +103,7 @@ const AccumTime = (time)=>{
 }
 
 const AccumPoints = (pointsT, pointsS)=>{
+    console.log("suma: ",pointsS);
     multiplier = 1;
     totalPoints += (pointsT+pointsS*multiplier)
 }
