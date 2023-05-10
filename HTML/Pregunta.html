@@ -17,28 +17,31 @@
 
 <div style="height:1vh;"></div>
 <div class="SeccionAyudas">
-   <img class="BotonAyuda" src="Images/ReduccionQuimica.svg" />
-   <img class="BotonAyuda" src="Images/PistaInformativa.svg" />
+   <a href="#" id="powerUp5050" transparent>
+      <img class="BotonAyuda" src="Images/ReduccionQuimica.svg" />
+   </a>
+   <a href="#" id="powerUpClue" transparent>
+      <img class="BotonAyuda" src="Images/PistaInformativa.svg" />
+   </a>
 </div>
 <img class="FooterAmgen" src="Images/FooterAmgen.svg" />
 
 <!-- Pista Informativa-->
 
-<div class="AyudaPistaInformativa" nodisplay >
+<div class="AyudaPistaInformativa" id="modalClue" nodisplay >
    <div class="OverlayPistaInformativa"></div>
    <div class="ContenedorPistaInformativa">
       <div class="TituloPista">PISTA INFORMATIVA</div>
       <div style="height:2vh;"></div>
-      <div class="TextoPista">Los Biosimilares son medicamentos seguros y eficaces para el tratamiento de muchas
-         enfermedades.</div>
+      <div class="TextoPista" id="contentClue"></div>
       <div style="height:4vh;"></div>
-      <a class="BotonContinuarAzul">CERRAR</a>
+      <a class="BotonContinuarAzul" id="closeClue">CERRAR</a>
    </div>
 </div>
 
 <!-- MensajeFinal-->
 
-<div class="AyudaPistaInformativa" nodisplay >
+<div class="AyudaPistaInformativa" id="finalMessage" nodisplay >
    <div class="OverlayPistaInformativa"></div>
    <div class="ContenedorTextoRetroalimentacion">
       <img class="BannerEstrellas" src="Images/Estrellas.png" />
@@ -46,9 +49,8 @@
 
       <div class="TextoRetroalimentacion">
          <div class="TituloTextoRetroalimentacion">RECUERDA</div>
-         <div class="ContenidoTextoRetroalimentacion"> Los Biosimilares son medicamentos seguros y eficaces para el
-            tratamiento de muchas enfermedades.</div>
-      </div> <a class="BotonContinuarAzul">SIGUIENTE</a>
+         <div class="ContenidoTextoRetroalimentacion" id="contentFinalMsg"> </div>
+      </div> <a class="BotonContinuarAzul" id="nextQuestion">SIGUIENTE</a>
    </div>
    <img class="LogoTextoRetroalimentacion" src="Images/LogoAmgen.svg" />
 </div>
