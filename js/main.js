@@ -2,6 +2,8 @@ import { ñ, InsertElement, ConmuteClassAndInner, RandomInt} from './utils.js'
 import * as views from "./views.js";
 import {loadDataFile} from './files.js'
 import * as register from './register.js'
+import {getUserData} from "./database.js";
+
 
 let Questions = {}    
 let TotalQuestions = {}    
@@ -146,31 +148,33 @@ const GoToResults = ()=>{
     });
 }
 
-const GoToRanking = (q)=>{
-    views.GoTo("Ranking").then(()=>{
-        let listaIndices = []//JSON.parse(localStorage.getItem("listaIndices") ||JSON.stringify([]));
-        FillRanking(listaIndices);
+window.GoRanking = ()=>{
+    views.GoTo("Ranking").then((res)=>{
+        getUserData().then((res)=>{
+            FillRanking(res);
+            // document.getElementById('loadingMessage').hidden =true;
+        }).catch((res)=> {
+            console.log("Error ranking: "+res)
+            alert("Ranking, Ha ocurrido un error, intente nuevamente.")
+        })
     });
 }
-
-const FillRanking = (listaIndices)=>{
+const FillRanking = (usersObj)=>{
     let users = []
-    for (const i in listaIndices) {
-        let user ={}
-        user.username= localStorage.getItem("Nombre_"+listaIndices[i] );
-        user.score= localStorage.getItem("Puntos_"+listaIndices[i] );
-        users.push(user);
-    }
+    for (const u in usersObj) 
+        if (usersObj.hasOwnProperty(u)) 
+            users.push(usersObj[u]);
     users.sort((a, b) => { return b.score - a.score; });
     
     let container = document.getElementById('tablasRR');
-    let tables = InsertElement('table',[],'',container);
     for (let i = 0; i < users.length; i++) {
-        let tr = InsertElement('tr',['EstiloPuntaje'],'',tables);
-        InsertElement('th',['PosicionJugadorRanking'],'#'+(i+1),tr);
+        // let tables = InsertElement('table',['ContenidosRanking'],'',container);
+        // let tr = InsertElement('tr',[],'',tables);
+        InsertElement('div',['PosicionRanking'],'#'+(i+1),tr);
         InsertElement('th',['NombreJugadorRanking'],users[i].username,tr);
         InsertElement('th',['PuntajeJugadorRanking'],users[i].score,tr);
     }
+    
 }
 
 const SetPowerUp5050 = (q)=>{
