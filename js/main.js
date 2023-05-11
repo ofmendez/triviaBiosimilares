@@ -16,7 +16,7 @@ let progress = 0
 let totalPoints = 0
 let pointsBySuccess = 100
 let multiplier = 1;
-let timeByAns = 30
+let timeByAns = 45
 let timeleft = timeByAns-1
 let userID = ""
 window.views = views
@@ -46,7 +46,6 @@ const successLogin = (res) =>{
 
 const SetLobby = ()=>{
     Questions = TotalQuestions.sort(() => .5 - Math.random()).slice(0,6);
-    console.log(Questions);
     GoLobby();
 }
 
@@ -76,7 +75,7 @@ const SetQuestionAndAnswers = (question)=>{
     ñ('.SeccionPuntaje')[0].innerHTML=totalPoints
     ñ('.TextoPregunta')[0].innerHTML = question.statement;
     for(let ans of question.Answers){
-        if(ans.isCorrect) console.log(String.fromCharCode(65 + parseInt(ans.id)));
+        // if(ans.isCorrect) console.log(String.fromCharCode(65 + parseInt(ans.id)));
         let a= InsertElement('a', ['BotonRespuesta'],ans.text,ñ('#answersList'),'answer'+ans.id);
         a.addEventListener("click", () => Answer(ans, question));
         InsertElement('span',['TextoAmarillo'],String.fromCharCode(65 + parseInt(ans.id))+': ',a,undefined,true);
@@ -99,7 +98,6 @@ const UpdateStatus = ( idAns, isCorrect)=>{
 }
 
 const AccumPoints = (pointsT, pointsS)=>{
-    console.log("suma: ",pointsS);
     multiplier = 1;
     totalPoints += (pointsT+pointsS*multiplier)
 }
@@ -145,8 +143,7 @@ const NextQuestionOrResults = ()=>{
 
 const GoToResults = ()=>{
     document.body.classList.add('avoidEvents');
-    console.log(answered);
-    updateScore( userID, totalPoints, Questions, answered).then((res)=>{
+    updateScore( userID, totalPoints, Questions, Object.values( answered)).then((res)=>{
         views.GoTo("Resultados").then((res)=>{
             ñ("#btnGoRank").addEventListener('click',()=> GoRanking());
             ñ('#score').innerHTML = totalPoints;
@@ -177,7 +174,6 @@ const FillRanking = (usersObj)=>{
         if (usersObj.hasOwnProperty(u)) 
             users.push(usersObj[u]);
     users.sort((a, b) => { return b.score - a.score; });
-    console.log(users);
     let container = ñ('#tablasRR');
     users.forEach((user,i) =>{
         let cls = ['PosicionRanking', (i<1?'PrimerPuesto':(i<2?'SegundoPuesto':(i<3?'TercerPuesto':'n')))]

@@ -46,7 +46,7 @@ export function updateScore(userId, newScore, questions, answers) {
             updates['/users/' + userId+'/score'] = newScore;
             for (let i = 0; i < 6; i++) {
                 updates['/users/' + userId+'/questionLevel'+(i+1)] = questions[i]?.id ?? "-"
-                updates['/users/' + userId+'/answerLevel'+(i+1)] = answers[i]?.id ?? "-"
+                updates['/users/' + userId+'/answerLevel'+(i+1)] = answers[i] ?? "-"
             }
             update(ref(db), updates).then(()=>{
                 resolve("Updated!! ")
