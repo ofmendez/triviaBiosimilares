@@ -606,9 +606,10 @@ padding:0px 5px;
 	display: none; 
 } 
 .ContenedorPuntajes{
-	height: 47vh;
+	height: 42vh;
 	width:90%;
 	margin: 0 auto;
 	overflow: scroll;
 	overflow-x: hidden;
+	padding:0 1vh;
 }
