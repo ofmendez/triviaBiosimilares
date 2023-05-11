@@ -2,7 +2,7 @@ import { ñ, InsertElement, ConmuteClassAndInner, RandomInt} from './utils.js'
 import * as views from "./views.js";
 import {loadDataFile} from './files.js'
 import * as register from './register.js'
-import {getUserData} from "./database.js";
+import {getUserData, updateScore} from "./database.js";
 
 
 let Questions = {}    
@@ -18,21 +18,23 @@ let pointsBySuccess = 100
 let multiplier = 1;
 let timeByAns = 30
 let timeleft = timeByAns-1
+let userID = ""
 window.views = views
 
 views.GoTo("Wellcome")
+// .then(()=> GoRanking())
 
-// views.GoTo("Ranking")
 // views.GoTo("Instrucciones01").then(()=>successLogin())
 // loadDataFile('json')
 
-window.TryLogin = (form)=>{return register.TryLogin(form, successLogin,GoToRanking)}
+window.TryLogin = (form)=>{return register.TryLogin(form, successLogin,GoRanking)}
 
 loadDataFile("txt").then((res)=>{
     TotalQuestions = res[0].Questions;
 });
 
-const successLogin = () =>{
+const successLogin = (res) =>{
+    userID = res;
     views.GoTo("Instrucciones01").then(()=>{
         ñ("#btnNext").addEventListener('click',()=>{
             views.GoTo("Instrucciones02").then(()=>{
@@ -44,6 +46,7 @@ const successLogin = () =>{
 
 const SetLobby = ()=>{
     Questions = TotalQuestions.sort(() => .5 - Math.random()).slice(0,6);
+    console.log(Questions);
     GoLobby();
 }
 
@@ -73,7 +76,7 @@ const SetQuestionAndAnswers = (question)=>{
     ñ('.SeccionPuntaje')[0].innerHTML=totalPoints
     ñ('.TextoPregunta')[0].innerHTML = question.statement;
     for(let ans of question.Answers){
-        // if(ans.isCorrect) console.log(String.fromCharCode(65 + parseInt(ans.id)));
+        if(ans.isCorrect) console.log(String.fromCharCode(65 + parseInt(ans.id)));
         let a= InsertElement('a', ['BotonRespuesta'],ans.text,ñ('#answersList'),'answer'+ans.id);
         a.addEventListener("click", () => Answer(ans, question));
         InsertElement('span',['TextoAmarillo'],String.fromCharCode(65 + parseInt(ans.id))+': ',a,undefined,true);
@@ -84,12 +87,12 @@ const SetQuestionAndAnswers = (question)=>{
 
 const Answer = (ans, question)=>{
     let classTarget = ans.isCorrect ?'RespuestaCorrecta':'RespuestaIncorrecta';
-    UpdateStatus(timeByAns-timeleft-1, ans.isCorrect)
+    UpdateStatus(ans.id, ans.isCorrect)
     AnimateAnswer(question,ñ('#answer'+ans.id), classTarget,  300);
 }
 
-const UpdateStatus = ( time, isCorrect)=>{
-    answered[progress] = isCorrect;
+const UpdateStatus = ( idAns, isCorrect)=>{
+    answered[progress] = idAns;
     if (isCorrect)
         AccumPoints(timeleft+1,pointsBySuccess*(progress+1))
     progress++;
@@ -117,7 +120,7 @@ const RunTimer = (question)=>{
         ñ(".FondoTiempo")[0].textContent =timeleft
         timeleft = pausedTime? timeleft: timeleft -1;
         if (timeleft < 0) {
-            UpdateStatus(timeByAns, false)
+            UpdateStatus(-1, false)
             AnimateAnswer(question,ñ('#TituloNivel'),'RespuestaIncorrecta', 300);
         }
     }, 1000);
@@ -139,12 +142,21 @@ const NextQuestionOrResults = ()=>{
     else
         GoLobby();
 }
+
 const GoToResults = ()=>{
     document.body.classList.add('avoidEvents');
-    views.GoTo("Resultados").then((res)=>{
-        ñ("#btnGoRank").addEventListener('click',()=> GoToRanking());
-        ñ('#score').innerHTML = totalPoints;
+    console.log(answered);
+    updateScore( userID, totalPoints, Questions, answered).then((res)=>{
+        views.GoTo("Resultados").then((res)=>{
+            ñ("#btnGoRank").addEventListener('click',()=> GoRanking());
+            ñ('#score').innerHTML = totalPoints;
+            document.body.classList.remove('avoidEvents');
+        });
+    }).catch((e) =>{
+        console.log("Error Update: "+e);
+        alert("Ocurrió un error, intenta nuevamente.");
         document.body.classList.remove('avoidEvents');
+        GoToResults();
     });
 }
 
@@ -152,7 +164,7 @@ window.GoRanking = ()=>{
     views.GoTo("Ranking").then((res)=>{
         getUserData().then((res)=>{
             FillRanking(res);
-            // document.getElementById('loadingMessage').hidden =true;
+            // ñ('#loadingMessage').hidden =true;
         }).catch((res)=> {
             console.log("Error ranking: "+res)
             alert("Ranking, Ha ocurrido un error, intente nuevamente.")
@@ -165,15 +177,17 @@ const FillRanking = (usersObj)=>{
         if (usersObj.hasOwnProperty(u)) 
             users.push(usersObj[u]);
     users.sort((a, b) => { return b.score - a.score; });
-    
-    let container = document.getElementById('tablasRR');
-    for (let i = 0; i < users.length; i++) {
-        // let tables = InsertElement('table',['ContenidosRanking'],'',container);
-        // let tr = InsertElement('tr',[],'',tables);
-        InsertElement('div',['PosicionRanking'],'#'+(i+1),tr);
-        InsertElement('th',['NombreJugadorRanking'],users[i].username,tr);
-        InsertElement('th',['PuntajeJugadorRanking'],users[i].score,tr);
-    }
+    console.log(users);
+    let container = ñ('#tablasRR');
+    users.forEach((user,i) =>{
+        let cls = ['PosicionRanking', (i<1?'PrimerPuesto':(i<2?'SegundoPuesto':(i<3?'TercerPuesto':'n')))]
+        let card= InsertElement('div',cls,'',container);
+        InsertElement('div',['NombreParticipante'],'  '+user.username,card);
+        let dScore = InsertElement('div',['PuntajeParticipante'],'',card);
+        let img= InsertElement('img',['IconoMoneda'],'', dScore );
+        img.src ="Images/Moneda.svg"
+        InsertElement('span',[],user.score, dScore );
+    });
     
 }
 

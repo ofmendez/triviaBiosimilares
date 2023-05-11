@@ -26,7 +26,7 @@ const Login = (form,successLogin)=>{
         form.elements['idNombreCompleto'].value,
         form.elements['idEmpresa'].value,
     ).then((res)=>{
-        successLogin();
+        successLogin(emailToId(form.elements['idCorreo'].value));
     }).catch((e)=> {
         alert("Ha ocurrido un error, intente nuevamente."+e)
     })

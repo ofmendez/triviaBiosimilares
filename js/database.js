@@ -39,11 +39,15 @@ export function getUserData() {
 
 
 
-export function updateScore(userId, newScore) {
+export function updateScore(userId, newScore, questions, answers) {
     return new Promise((resolve,reject)=>{
         getDB().then((db)=>{
             const updates = {};
             updates['/users/' + userId+'/score'] = newScore;
+            for (let i = 0; i < 6; i++) {
+                updates['/users/' + userId+'/questionLevel'+(i+1)] = questions[i]?.id ?? "-"
+                updates['/users/' + userId+'/answerLevel'+(i+1)] = answers[i]?.id ?? "-"
+            }
             update(ref(db), updates).then(()=>{
                 resolve("Updated!! ")
             });
@@ -67,7 +71,19 @@ export function createUserData(userId, email, name, company) {
                 username: name,
                 email: email,
                 company: company,
-                score : 0
+                score : 0,
+                questionLevel1 : '-',
+                answerLevel1 : '-',
+                questionLevel2 : '-',
+                answerLevel2 : '-',
+                questionLevel3 : '-',
+                answerLevel3 : '-',
+                questionLevel4 : '-',
+                answerLevel4 : '-',
+                questionLevel5 : '-',
+                answerLevel5 : '-',
+                questionLevel6 : '-',
+                answerLevel6 : '-'
             }).then((res)=> resolve("writted"));
         }).catch((e)=> reject("error getDB: "+e))
     });
