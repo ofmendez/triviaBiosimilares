@@ -121,8 +121,9 @@ img {
   
 /* Bloquear rotación a horizontal */
 
-  @media (max-width: 1200px) and (orientation: landscape) {
-	
+@media (max-width: 1200px) and (orientation: landscape) {
+
+    
   }
 
 
@@ -136,7 +137,7 @@ img {
 }
 
 .ContenedorRegistro{
-	width:70%;
+	width:75%;
 	margin:0 auto;
 	background: url(../Images/FondoDatosRegistro.png) no-repeat center center;
 	background-size: contain;
@@ -233,8 +234,9 @@ button{
 .FooterAmgen{
 	width:20%;
 	position: absolute;
-	bottom: 1vh;
+	bottom: 12px;
 	left:4vh;
+	z-index: 10;
    }
 
    .IconoMoneda{
@@ -313,6 +315,10 @@ button{
 	font-size:14px;
 }
 
+.BloqueRespuesta{
+position: relative;
+top:-2vh;
+}
 .BotonRespuesta{
 	background:url(../Images/FondoBotonContinuar.svg) no-repeat center center;
 	background-size: contain;
@@ -324,8 +330,8 @@ button{
 	padding:20px;
 	color:white;
 	filter: drop-shadow(0px 3px 4px #0e0c63aa);
-	line-height: 1.2em;
-    font-size: 13px;
+	line-height: 1.1em;
+    font-size: 12px;
 }
 
 .RespuestaCorrecta{
@@ -346,12 +352,14 @@ border-top:3px solid #2c54a3;
 border-bottom:3px solid #2c54a3;
 	display:block;
 	width:100%;
+	position: relative;
+top:-2vh;
 
 }
 
 .BotonAyuda{
 	width:18%;
-	padding:1vh 2vh .5vh 2vh;
+	padding:1vh 2vh 20vh 2vh;
 }
 
 .AyudaPistaInformativa{
@@ -459,7 +467,7 @@ border-bottom:3px solid #2c54a3;
 
 .ContenidoTextoRetroalimentacion{
 	color:white;
-	padding:3vw 30px 20px 30px;
+	padding:20px 30px 20px 30px;
 	background-color: #2fb2e8;
 	border-radius: 0 0 30px 30px;
 	font-size: 14px;
@@ -468,11 +476,12 @@ border-bottom:3px solid #2c54a3;
 
 .LogoTextoRetroalimentacion{
 	width:35%;
-	position: absolute;
-	bottom: 0px;
-	left:50%;
-	transform: translateX(-50%);
-	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+ position: absolute;
+ bottom: -2px;
+ left:50%;
+ transform: translateX(-50%);
+ filter: drop-shadow(0px 3px 4px #0e0c63aa);
+ z-index:10;
 }
 
 /* Pagina Resultados */
@@ -508,12 +517,27 @@ border-bottom:3px solid #2c54a3;
 	font-size:20px;
 }
 
+.BotonRanking{
+	background:url(../Images/FondoBotonContinuar.svg) no-repeat center center;
+	background-size: contain;
+	width:70%;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	padding:20px;
+	color:white;
+	filter: drop-shadow(0px 3px 4px #0e0c63aa);
+	position:relative;
+	z-index:20;
+	top:-5vh;
+}
+
 /* Página Ranking */
 
 .PosicionRanking{
 	background:url(../Images/FondoBotonContinuar.svg) no-repeat center center;
 	background-size: contain;
-	width:70%;
+	width:90%;
 	text-align: center;
 	margin: 0 auto;
 	display: block;
@@ -523,6 +547,7 @@ border-bottom:3px solid #2c54a3;
 	display: flex;
 	align-items: center;
 	height:4.5vh;
+
 }
 
 .PrimerPuesto{
@@ -539,15 +564,17 @@ border-bottom:3px solid #2c54a3;
 }
 
 .NombreParticipante{
-width:70%;
+width:65%;
 text-align: left;
-padding:0px 20px;
+padding:0px 5px;
+line-height: 1em;
+font-size:14px;
 }
 
 .PuntajeParticipante{
-width:30%;
+width:35%;
 text-align: right;
-padding:0px 20px;
+padding:0px 5px;
 }
 
 /* Fabian*/
