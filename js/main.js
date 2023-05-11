@@ -1,5 +1,4 @@
-import { emailToId, ñ, InsertElement, ConmuteClassAndInner, RandomInt} from './utils.js'
-import {createUserData ,getUserData} from "./database.js";
+import { ñ, InsertElement, ConmuteClassAndInner, RandomInt} from './utils.js'
 import * as views from "./views.js";
 import {loadDataFile} from './files.js'
 import * as register from './register.js'
@@ -8,36 +7,35 @@ let Questions = {}
 let TotalQuestions = {}    
 let countdownTimer = {}
 let pausedTime = false
-let totalTime = 0 
 let aviable5050 = true
 let aviableClue = true
 let answered = {}
 let progress = 0
-let totalErrors = 0
-let streak = 0
 let totalPoints = 0
 let pointsBySuccess = 100
 let multiplier = 1;
-let timeByAns = 9999
+let timeByAns = 30
 let timeleft = timeByAns-1
 window.views = views
 
-views.GoTo("Ranking")
-// views.GoTo("Wellcome")
+views.GoTo("Wellcome")
+
+// views.GoTo("Ranking")
 // views.GoTo("Instrucciones01").then(()=>successLogin())
-loadDataFile('json')
+// loadDataFile('json')
 
-
-window.TryLogin = (form)=>{return register.TryLogin(form, successLogin)}
+window.TryLogin = (form)=>{return register.TryLogin(form, successLogin,GoToRanking)}
 
 loadDataFile("txt").then((res)=>{
     TotalQuestions = res[0].Questions;
 });
 
 const successLogin = () =>{
-    ñ("#btnNext").addEventListener('click',()=>{
-        views.GoTo("Instrucciones02").then(()=>{
-            ñ("#btnStartGame").addEventListener('click',()=> SetLobby() );
+    views.GoTo("Instrucciones01").then(()=>{
+        ñ("#btnNext").addEventListener('click',()=>{
+            views.GoTo("Instrucciones02").then(()=>{
+                ñ("#btnStartGame").addEventListener('click',()=> SetLobby() );
+            });
         });
     });
 } 
@@ -73,12 +71,11 @@ const SetQuestionAndAnswers = (question)=>{
     ñ('.SeccionPuntaje')[0].innerHTML=totalPoints
     ñ('.TextoPregunta')[0].innerHTML = question.statement;
     for(let ans of question.Answers){
-        // if(ans.isCorrect) 
-        //     console.log(String.fromCharCode(65 + parseInt(ans.id)));
+        // if(ans.isCorrect) console.log(String.fromCharCode(65 + parseInt(ans.id)));
         let a= InsertElement('a', ['BotonRespuesta'],ans.text,ñ('#answersList'),'answer'+ans.id);
         a.addEventListener("click", () => Answer(ans, question));
         InsertElement('span',['TextoAmarillo'],String.fromCharCode(65 + parseInt(ans.id))+': ',a,undefined,true);
-        InsertElement('div',['space1vh'],'',ñ('#answersList'));
+        InsertElement('div',['spaceMediumvh'],'',ñ('#answersList'));
     }
 }
 
@@ -91,16 +88,9 @@ const Answer = (ans, question)=>{
 
 const UpdateStatus = ( time, isCorrect)=>{
     answered[progress] = isCorrect;
-    totalErrors += isCorrect? 0 : 1;
-    // streak = isCorrect? streak + 1 : 0;
-    AccumTime(time)
     if (isCorrect)
         AccumPoints(timeleft+1,pointsBySuccess*(progress+1))
     progress++;
-}
-
-const AccumTime = (time)=>{
-    totalTime += time;
 }
 
 const AccumPoints = (pointsT, pointsS)=>{
@@ -128,7 +118,7 @@ const RunTimer = (question)=>{
             UpdateStatus(timeByAns, false)
             AnimateAnswer(question,ñ('#TituloNivel'),'RespuestaIncorrecta', 300);
         }
-    }, 1000);//Second by second
+    }, 1000);
 }
 
 
@@ -181,25 +171,24 @@ const FillRanking = (listaIndices)=>{
         InsertElement('th',['NombreJugadorRanking'],users[i].username,tr);
         InsertElement('th',['PuntajeJugadorRanking'],users[i].score,tr);
     }
-    
 }
-
 
 const SetPowerUp5050 = (q)=>{
     if(aviable5050)
-        ñ('#powerUp5050').removeAttribute("transparent");
+        ñ('#powerUp5050').removeAttribute("grayscale");
     ñ('#powerUp5050').addEventListener('click', () =>{
-        ñ('#powerUp5050').setAttribute("transparent", true);
+        ñ('#powerUp5050').setAttribute("grayscale", true);
         Use5050(q)
     });
 }
+
 const SetPowerUpClue = (q)=>{
     ñ("#contentClue").innerHTML = q.ayuda;
     if(aviableClue)
-        ñ('#powerUpClue').removeAttribute("transparent");
+        ñ('#powerUpClue').removeAttribute("grayscale");
     ñ('#powerUpClue').addEventListener('click', () =>{
         aviableClue = false;
-        ñ('#powerUpClue').setAttribute("transparent", true);
+        ñ('#powerUpClue').setAttribute("grayscale", true);
         UseClue(q)
     });
 }

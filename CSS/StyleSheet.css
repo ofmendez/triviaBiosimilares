@@ -552,6 +552,9 @@ padding:0px 20px;
 
 /* Fabian*/
 
+.spaceMediumvh {
+    height:0.5vh;
+}
 .space1vh {
     height:1vh;
 }
@@ -567,7 +570,18 @@ padding:0px 20px;
 [transparent] { 
 	visibility: hidden; 
 } 
+[grayscale] { 
+	filter: grayscale(1);
+	pointer-events: none;
+} 
 
 [nodisplay] { 
 	display: none; 
 } 
+.ContenedorPuntajes{
+	height: 47vh;
+	width:90%;
+	margin: 0 auto;
+	overflow: scroll;
+	overflow-x: hidden;
+}

@@ -7,8 +7,6 @@
             fetch("./Data/dataf.txt")
             .then((response) => response.text())
             .then((textView) =>  {
-                // console.log(b64DecodeUnicode(textView));
-                // console.log(JSON.parse(b64DecodeUnicode(textView)));
                 resolve( JSON.parse(b64DecodeUnicode(textView))[0].firebaseConfig );
             });
         });
@@ -27,7 +25,7 @@
             .then((response) => response.text())
             .then((textView) =>  {
                 if(ext === "json"){
-                    console.log(b64EncodeUnicode(textView));
+                    // console.log(b64EncodeUnicode(textView));
                     resolve("done")
                 } else
                     resolve( JSON.parse(b64DecodeUnicode(textView)));

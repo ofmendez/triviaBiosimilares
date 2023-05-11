@@ -8,24 +8,23 @@ let app = {}
 let existDatabase = false;
 
 
-// const getDB = function (){
-//     return new Promise((resolve,reject)=>{
-//         if (existDatabase){
-//             resolve(database)
-//         } else{
-//             existDatabase =true;
-//             loadCredentials().then((res)=>{
-//                 firebaseConfig =res;
-//                 app = initializeApp(firebaseConfig);
-//                 database = getDatabase(app);
-//                 resolve(database);
-//             });
-//         }
-//     });
-// };
+const getDB = function (){
+    return new Promise((resolve,reject)=>{
+        if (existDatabase){
+            resolve(database)
+        } else{
+            existDatabase =true;
+            loadCredentials().then((res)=>{
+                firebaseConfig =res;
+                app = initializeApp(firebaseConfig);
+                database = getDatabase(app);
+                resolve(database);
+            });
+        }
+    });
+};
 
 export function getUserData() {
-    return true;
     return new Promise((resolve,reject)=>{
         getDB().then((db)=>{
             const starCountRef = ref(db, '/users');
@@ -41,7 +40,6 @@ export function getUserData() {
 
 
 export function updateScore(userId, newScore) {
-    return true;
     return new Promise((resolve,reject)=>{
         getDB().then((db)=>{
             const updates = {};
@@ -54,8 +52,6 @@ export function updateScore(userId, newScore) {
 }
 
 export function DeleteUser(userId) {
-    return true;
-
     return new Promise((resolve,reject)=>{
         getDB().then((db)=>{
             set(ref(db, 'users/' + userId),  null ).then((res)=> resolve("DELETED!!"));
@@ -64,21 +60,15 @@ export function DeleteUser(userId) {
 }
 
 
-export function createUserData(userId, email, name, company, acceptAssesment, mailBox) {
-    return true;
-
+export function createUserData(userId, email, name, company) {
     return new Promise((resolve,reject)=>{
         getDB().then((db)=>{
             set(ref(db, 'users/' + userId), {
                 username: name,
                 email: email,
                 company: company,
-                acceptAssesment: acceptAssesment,
-                mailBox: mailBox,
                 score : 0
             }).then((res)=> resolve("writted"));
         }).catch((e)=> reject("error getDB: "+e))
     });
 }
-
-// export {createUserData }
