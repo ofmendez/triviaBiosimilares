@@ -484,6 +484,19 @@ top:-2vh;
  z-index:10;
 }
 
+.FuenteRetroalimentacion{
+	font-size:9px;
+	line-break: 1em;
+	display: inline-block;
+}
+
+.FuenteRetroalimentacion::before{
+    content: "\a";
+    white-space: pre;
+}
+
+
+
 /* Pagina Resultados */
 
 .ContenedorResultado{
